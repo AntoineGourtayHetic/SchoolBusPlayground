@@ -38,13 +38,41 @@ PlaygroundPage.current.liveView = canvas
 
 class Bus {
     
+    var driver: String
+    
+    init(driverName: String){
+        self.driver = driverName
+
+    }
+    
+    func moveForward(){
+        canvas.moveBusForward()
+    }
+    
+    func stop(){
+        canvas.stopBus()
+    }
+    
+    func drive(road: Road){
+        for _ in road.sections {
+            moveForward()
+        }
+    }
 }
 
 class Road {
+    
+    static let maxLength = 77
     var sections = [RoadSection]()
     
-    init(lenght: Int) {
-        for _ in 0..<lenght {
+    init(length: Int) {
+        var length = length
+        
+        if length > Road.maxLength {
+            length = Road.maxLength
+        }
+        
+        for _ in 0..<length {
             self.sections.append(RoadSection())
         }
     }
@@ -53,9 +81,11 @@ class Road {
 
 class RoadSection {
     init() {
-        canvas.createRoadSectio()
+        canvas.createRoadSection()
     }
     
 }
 
-var road = Road(lenght: 20)
+var road = Road(length: 20)
+var unBus = Bus(driverName: "Jean")
+unBus.drive(road: road)
