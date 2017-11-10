@@ -2,6 +2,7 @@
 ⬇️ *Vous pouvez ignorez le code ci-dessous, il nous permet juste d'initialiser et de visualiser le canvas à droite.*
  */
 import PlaygroundSupport
+
 let canvas = Canvas()
 PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = canvas
@@ -15,6 +16,7 @@ PlaygroundPage.current.liveView = canvas
 
  `canvas.createRoadSection()`
  - 🛣 Cette fonction permet de **créer une section de route**. A chaque appel de cette fonction, une nouvelle section de route est crée.
+ 
 
  `canvas.createHomeRoadSection()`
  - 🛣🏠 Similaire à la précédente, cette fonction permet de créer une section de route **qui contient une maison**.
@@ -33,3 +35,27 @@ PlaygroundPage.current.liveView = canvas
  ## A vous de jouer !
  */
 
+
+class Bus {
+    
+}
+
+class Road {
+    var sections = [RoadSection]()
+    
+    init(lenght: Int) {
+        for _ in 0..<lenght {
+            self.sections.append(RoadSection())
+        }
+    }
+    
+}
+
+class RoadSection {
+    init() {
+        canvas.createRoadSectio()
+    }
+    
+}
+
+var road = Road(lenght: 20)
